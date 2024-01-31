@@ -1,7 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 const app = express();
-const port = 3000;
+const port = 80;
 const path = require("path");
 const fs = require("fs");
 
@@ -72,5 +72,5 @@ app.delete("/delete-contact/:name", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("server is running on port 3000");
+  console.log(`server is running on port ${port}`);
 });
