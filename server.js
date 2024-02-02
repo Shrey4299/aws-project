@@ -1,7 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 const app = express();
-const port = 80;
+const port = 3000;
 const path = require("path");
 const fs = require("fs");
 
