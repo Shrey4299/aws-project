@@ -21,8 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Application
-        run: npm run start
+      - name: Install PM2
+        run: npm install -g pm2
+
+      - name: Start Node.js Application with PM2
+        run: pm2 start server.js
 
       - name: Deploy to AWS Elastic Beanstalk
         uses: aws-actions/configure-aws-credentials@v1
