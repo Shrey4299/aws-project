@@ -21,7 +21,56 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-const contacts = [{ name: "john", phone: "123232342", profile: "doctor" }];
+const products = [
+  {
+    data: {
+      product: {
+        is_active: true,
+        cod_enabled: false,
+        product_return: false,
+        id: 42,
+        name: "White shoe for men 2",
+        description: "while shoe for men , running shoe",
+        CategoryId: 1,
+        CollectionId: null,
+        CollectionStaticId: null,
+        ThumbnailId: 4,
+        shipping_value: 100,
+        shipping_value_type: "SHIPPING_PRICE",
+        updatedAt: "2024-01-11T10:20:44.274Z",
+        createdAt: "2024-01-11T10:20:44.274Z",
+        yt_video_link: null,
+        LeadId: null,
+      },
+      variants: [
+        {
+          is_active: true,
+          id: 95,
+          name: "demo Product variant 4 ",
+          price: "3000",
+          quantity: 1,
+          ProductId: 42,
+          ThumbnailId: 1,
+          createdAt: "2024-01-11T10:20:44.288Z",
+          updatedAt: "2024-01-11T10:20:44.288Z",
+          premium_price: null,
+        },
+        {
+          is_active: true,
+          id: 96,
+          name: "demo Product variant 5  ",
+          price: "3000",
+          quantity: 1,
+          ProductId: 42,
+          ThumbnailId: 1,
+          createdAt: "2024-01-11T10:20:44.288Z",
+          updatedAt: "2024-01-11T10:20:44.288Z",
+          premium_price: null,
+        },
+      ],
+    },
+  },
+];
 
 app.use(express.json());
 
@@ -39,8 +88,12 @@ app.post("/add-contact", (req, res) => {
   res.json({ message: "Contact added successfully", contact });
 });
 
-app.get("/get-contacts", (req, res) => {
-  res.json({ contacts });
+app.get("/get-products", (req, res) => {
+  res.json({ products });
+});
+
+app.get("/", (req, res) => {
+  res.json({ message: "Server is running in AWS " });
 });
 
 app.put("/edit-contact/:name", (req, res) => {
