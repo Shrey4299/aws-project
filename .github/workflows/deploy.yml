@@ -40,5 +40,8 @@ jobs:
           pip3 install --upgrade pip
           pip3 install awsebcli
 
+      - name: Initialize Elastic Beanstalk
+        run: eb init -p nodejs Blogify-Env
+
       - name: Deploy to AWS Elastic Beanstalk
-        run: eb deploy Blogify-Env
+        run: eb deploy
